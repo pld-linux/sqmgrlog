@@ -6,6 +6,7 @@ Release:	3
 License:	GPL
 Group:		Networking/Utilities
 Source0:	http://web.onda.com.br/orso/%{name}-%{version}.tar.gz
+# Source0-md5:	5ea6cce40796fca8c1dd8bf03b9b3e13
 URL:		http://web.onda.com.br/orso/
 BuildRequires:	perl
 BuildRequires:	autoconf
