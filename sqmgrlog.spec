@@ -32,7 +32,7 @@ perl -pi -e "s;/usr/local/etc/httpd/htdocs/squid-reports;/home/httpd/html/squid-
 
 %build
 aclocal
-autoconf
+%{__autoconf}
 %configure \
 	--enable-prefix=%{_prefix} \
 	--enable-config=%{_sysconfdir}/squid/
