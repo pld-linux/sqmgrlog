@@ -1,7 +1,7 @@
 Summary:	Sqmgrlog generate reports per user/ip/name from SQUID log file.
 Summary(pl):	Sqmgrlog generuje raporty z podzia³em na u¿ytkowników/ip/nazwy na podstawie logów SQUIDa
 Name:		sqmgrlog
-Version:	2.11
+Version:	2.12
 Release:	1
 Group:          Networking/Utilities
 Group(de):      Netzwerkwesen/Werkzeuge
