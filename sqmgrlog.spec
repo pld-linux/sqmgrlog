@@ -28,7 +28,7 @@ wysy³ane poczt± elektroniczn±.
 %prep
 %setup  -q
 perl -pi -e "s;/usr/local/squid/logs/access.log;/var/log/squid/access.log;" *.c
-perl -pi -e "s;/usr/local/etc/httpd/htdocs/squid-reports;/home/httpd/html/squid-reports;" *.c
+perl -pi -e "s;/usr/local/etc/httpd/htdocs/squid-reports;/home/services/httpd/html/squid-reports;" *.c
 
 %build
 %{__aclocal}
@@ -41,7 +41,7 @@ perl -pi -e "s;/usr/local/etc/httpd/htdocs/squid-reports;/home/httpd/html/squid-
 %install
 rm -rf $RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT{%{_sysconfdir}/{cron.d,squid},%{_sbindir},/home/httpd/html/squid-reports}
+install -d $RPM_BUILD_ROOT{%{_sysconfdir}/{cron.d,squid},%{_sbindir},/home/services/httpd/html/squid-reports}
 install sqmgrlog $RPM_BUILD_ROOT%{_sbindir}
 install sqmgrlog.conf $RPM_BUILD_ROOT%{_sysconfdir}/squid
 
@@ -54,4 +54,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(640,root,root) %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/squid/sqmgrlog.conf
 %attr(755,root,root) %{_sbindir}/*
 %doc CONTRIBUTORS COPYING ChangeLog README
-%dir /home/httpd/html/squid-reports
+%dir /home/services/httpd/html/squid-reports
