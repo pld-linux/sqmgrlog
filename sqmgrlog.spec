@@ -51,7 +51,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%doc CONTRIBUTORS ChangeLog README
 %attr(640,root,root) %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/squid/sqmgrlog.conf
 %attr(755,root,root) %{_sbindir}/*
-%doc CONTRIBUTORS COPYING ChangeLog README
 %dir /home/services/httpd/html/squid-reports
