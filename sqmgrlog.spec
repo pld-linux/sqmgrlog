@@ -31,7 +31,7 @@ perl -pi -e "s;/usr/local/squid/logs/access.log;/var/log/squid/access.log;" *.c
 perl -pi -e "s;/usr/local/etc/httpd/htdocs/squid-reports;/home/httpd/html/squid-reports;" *.c
 
 %build
-aclocal
+%{__aclocal}
 %{__autoconf}
 %configure \
 	--enable-prefix=%{_prefix} \
