@@ -7,39 +7,41 @@ Group:          Networking/Utilities
 Group(de):      Netzwerkwesen/Werkzeuge
 Group(pl):      Sieciowe/Narzêdzia
 License:	GPL
-Source0:	%{name}-%{version}.tar.gz
-#Source1:	-
-#Source2:	-
-#Patch0:		-
-#Patch1:		-
-#Patch2:		-
-#URL:		-
-#BuildPrereq:	-
-#Requires:	-
-#Prereq:		-
+URL:            http://web.onda.com.br/orso/
+Source0:        http://web.onda.com.br/orso/%{name}-%{version}.tar.gz
+Requires:	squid
+Requires:	httpd
+Requires:	/bin/mail
+Requires:	crondaemon
+BuildRequires:	perl
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
+Sqmgrlog generate reports per user/ip/name from SQUID log file. The
+reports will be generated in HTML or email.
 
 %description -l de
 
 %description -l fr
 
 %description -l pl
-
-%description -l tr
+Sqmgrlog generuje raporty wed³ug u¿ytkownika/numeru IP/nazwy hosta
+korzystaj±c z logów SQUID'a. Raporty mog± generowane w HTML lub
+wysy³ane poczta e-mail.
 
 %prep
 %setup  -q
+perl -pi -e "s;/usr/local/squid/logs/access.log;/var/log/squid/access.log;" *.c
+perl -pi -e "s;/usr/local/etc/httpd/htdocs/squid-reports;/home/html/squid-reports;" *.c
 
 %build
-%configure --enable-prefix=/usr/sbin --enable-config=/etc/squid/
+%configure --enable-prefix=%{_prefix} --enable-config=%{_sysconfdir}/squid/
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT{/etc/{cron.d,squid},/usr/sbin}
+install -d $RPM_BUILD_ROOT{/etc/{cron.d,squid},/usr/sbin,/home/httpd/html/squid-reports}
 install sqmgrlog $RPM_BUILD_ROOT/usr/sbin
 install sqmgrlog.conf $RPM_BUILD_ROOT/etc/squid
 
@@ -61,3 +63,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(640,root,root) %config(noreplace) %verify(not size mtime md5) /etc/squid/sqmgrlog.conf
 %attr(755,root,root) %{_sbindir}/*
 %doc *.gz
+%dir /home/httpd/html/squid-reports
