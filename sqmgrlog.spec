@@ -3,15 +3,17 @@ Summary(pl):	Sqmgrlog generuje raporty na podstawie logów SQUIDa
 Name:		sqmgrlog
 Version:	2.12
 Release:	3
+License:	GPL
 Group:		Networking/Utilities
 Group(de):	Netzwerkwesen/Werkzeuge
 Group(es):	Red/Utilitarios
 Group(pl):	Sieciowe/Narzêdzia
 Group(pt_BR):	Rede/Utilitários
-License:	GPL
-URL:		http://web.onda.com.br/orso/
 Source0:	http://web.onda.com.br/orso/%{name}-%{version}.tar.gz
+URL:		http://web.onda.com.br/orso/
 BuildRequires:	perl
+BuildRequires:	autoconf
+BuildRequires:	automake
 Requires:	squid
 Requires:	httpd
 Requires:	/bin/mail
@@ -24,8 +26,8 @@ reports will be generated in HTML or email.
 
 %description -l pl
 Sqmgrlog generuje raporty wed³ug u¿ytkownika/numeru IP/nazwy hosta
-korzystaj±c z logów SQUID'a. Raporty mog± generowane w HTML lub
-wysy³ane poczta e-mail.
+korzystaj±c z logów SQUIDa. Raporty mog± generowane w HTML lub
+wysy³ane poczt± elektroniczn±.
 
 %prep
 %setup  -q
