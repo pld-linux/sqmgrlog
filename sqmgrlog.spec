@@ -45,7 +45,6 @@ install -d $RPM_BUILD_ROOT{%{_sysconfdir}/{cron.d,squid},%{_sbindir},/home/httpd
 install sqmgrlog $RPM_BUILD_ROOT%{_sbindir}
 install sqmgrlog.conf $RPM_BUILD_ROOT%{_sysconfdir}/squid
 
-gzip -9nf CONTRIBUTORS COPYING ChangeLog README
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -54,5 +53,5 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(640,root,root) %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/squid/sqmgrlog.conf
 %attr(755,root,root) %{_sbindir}/*
-%doc *.gz
+%doc CONTRIBUTORS COPYING ChangeLog README
 %dir /home/httpd/html/squid-reports
