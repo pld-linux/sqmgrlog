@@ -2,7 +2,7 @@ Summary:	Sqmgrlog generate reports per user/ip/name from SQUID log file.
 Summary(pl):	Sqmgrlog generuje raporty z podzia³em na u¿ytkowników/ip/nazwy na podstawie logów SQUIDa
 Name:		sqmgrlog
 Version:	2.12
-Release:	1
+Release:	2
 Group:          Networking/Utilities
 Group(de):      Netzwerkwesen/Werkzeuge
 Group(pl):      Sieciowe/Narzêdzia
@@ -32,7 +32,7 @@ wysy³ane poczta e-mail.
 %prep
 %setup  -q
 perl -pi -e "s;/usr/local/squid/logs/access.log;/var/log/squid/access.log;" *.c
-perl -pi -e "s;/usr/local/etc/httpd/htdocs/squid-reports;/home/html/squid-reports;" *.c
+perl -pi -e "s;/usr/local/etc/httpd/htdocs/squid-reports;/home/httpd/html/squid-reports;" *.c
 
 %build
 %configure --enable-prefix=%{_prefix} --enable-config=%{_sysconfdir}/squid/
