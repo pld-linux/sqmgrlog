@@ -8,13 +8,13 @@ Group:		Networking/Utilities
 Source0:	http://web.onda.com.br/orso/%{name}-%{version}.tar.gz
 # Source0-md5:	5ea6cce40796fca8c1dd8bf03b9b3e13
 URL:		http://web.onda.com.br/orso/
-BuildRequires:	perl
 BuildRequires:	autoconf
 BuildRequires:	automake
-Requires:	squid
-Requires:	httpd
+BuildRequires:	perl
 Requires:	/bin/mail
 Requires:	crondaemon
+Requires:	httpd
+Requires:	squid
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -53,6 +53,6 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc CONTRIBUTORS ChangeLog README
-%attr(640,root,root) %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/squid/sqmgrlog.conf
+%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/squid/sqmgrlog.conf
 %attr(755,root,root) %{_sbindir}/*
 %dir /home/services/httpd/html/squid-reports
