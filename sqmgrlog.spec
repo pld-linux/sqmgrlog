@@ -13,7 +13,7 @@ BuildRequires:	automake
 BuildRequires:	perl
 Requires:	/bin/mail
 Requires:	crondaemon
-Requires:	httpd
+Requires:	webserver
 Requires:	squid
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
